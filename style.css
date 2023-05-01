@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.parent {
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-shadow: 0 0 15rem 2rem;
+    z-index: 1;
+}
+
+.items {
+    width: 13rem;
+    height: 13rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.items:hover {
+    cursor: pointer;
+}
+
+.ph-x, .ph-circle {
+    font-size: 7.5rem;
+}
+
+.player {
+    display: flex;
+    position: absolute;
+    top: 7rem;
+    gap: 10rem;
+    z-index: 0;
+}
+
+.players {
+    font-size: 2rem;
+    border: 3px solid rgb(32, 111, 120);;
+    padding: .5rem;
+    cursor: default;
+}
+
+.over {
+    position: absolute;
+    background-color: rgb(208, 206, 204);
+    padding: 3rem;
+    top: -1000px;
+    cursor: default;
+    opacity: 0.9;
+    z-index: 2;
+}
+
+.over div:first-child {
+    font-size: 3rem;
+}
+
+.over button {
+    display: block;
+    margin: 0 auto;
+    padding: .5rem 1rem;
+}
+
+.animate-player {
+    animation-name: scale-in-out;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.animate-over {
+    animation-name: top-slide;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scale-in-out {
+    from {
+        scale: 1;
+    }
+
+    to {
+        scale: 1.05;
+    }
+}
+
+@keyframes top-slide {
+    to {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media(max-width: 440px) {
+    html {
+        font-size: 8.5px;
+    }
+
+    .player {
+        top: 10rem;
+    }
+}
+
+@media(max-width: 360px) {
+    html {
+        font-size: 7px;
+    }
+
+    .player {
+        top: 8rem;
+    }
+
+    .items {
+        width: 30vw;
+        height: 30vw;
+    }
+
+    .ph-x, .ph-circle {
+        font-size: 20vw;
+    }
+
+    .player {
+        flex-direction: column;
+        gap: 5rem;
+    }
+}
